@@ -4,5 +4,5 @@ Symlinked into home folder:
 
 ```bash
 cd ~
-ln -s ~/Projects/dotfiles/<whatever> .
+ln -s ~/Projects/dotfiles/<whatever> .<whatever>
 ```
