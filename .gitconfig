@@ -1,0 +1,20 @@
+[alias]
+  unstage = reset HEAD
+
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+  sh = auto
+  ui = auto
+  interactive = auto
+
+[core]
+  editor = subl -w
+
+[push]
+  default = tracking
+
+[user]
+	name = Jeff Long
+	email = hello@jeffreylong.org
