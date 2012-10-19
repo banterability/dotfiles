@@ -35,6 +35,7 @@ export RUBY_HEAP_FREE_MIN=100000
 
 # Env
 export EDITOR='subl -w'
+export PATH="/usr/local/heroku/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:$PATH"
 
 # RVM
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
