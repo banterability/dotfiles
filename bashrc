@@ -1,3 +1,6 @@
+# Include servers (not under source control)
+source "$HOME/.servers"
+
 # Shortcuts
 alias c="script/console"
 alias s="subl ."
