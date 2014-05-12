@@ -10,6 +10,8 @@ alias lsd="ls -lt"
 alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 alias http='python -m SimpleHTTPServer'
 
+alias monitor="sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport --disassociate"
+
 function setup_rvm {
   echo "rvm use 1.9.3@${1} --create" > .rvmrc
 }
