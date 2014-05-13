@@ -12,6 +12,15 @@ alias http='python -m SimpleHTTPServer'
 
 alias monitor="sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport --disassociate"
 
+# Editors
+export EDITOR='subl -w'
+alias m="mate ."
+alias s="subl ."
+alias a="atom ."
+
+alias o="open ."
+alias lsd="ls -lt"
+alias psg="ps -ax | grep"
 
 # Git
 alias gs="git status"
@@ -20,6 +29,9 @@ alias gc="git commit -v"
 alias gcm="git checkout master"
 alias gcb="git checkout -b"
 alias gd="git diff"
+alias ggrep="git rev-list --all | xargs git grep"
+
+alias http='python -m SimpleHTTPServer'
 
 # Prompt
 function parse_git_dirty {
@@ -31,5 +43,4 @@ function parse_git_branch {
 export PS1='\W\[\033[1;33m\]$(parse_git_branch)\[\033[0m\]:$ '
 
 # Env
-export EDITOR='subl -w'
 export PATH="/usr/local/heroku/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:$PATH"
