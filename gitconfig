@@ -1,20 +1,18 @@
 [alias]
-  unstage = reset HEAD
-
-[color]
-  branch = auto
-  diff = auto
-  status = auto
-  sh = auto
-  ui = auto
-  interactive = auto
+	unstage = reset HEAD
+	push-please = push --force-with-lease
+	co = checkout
+	cb = checkout -b
 
 [core]
-  editor = subl -w
+	pager = diff-so-fancy | less --tabs=4 -RFX
 
-[push]
-  default = tracking
+[init]
+	defaultBranch = main
+
+[interactive]
+	diffFilter = diff-so-fancy --patch
 
 [user]
-	name = Jeff Long
-	email = hello@jeffreylong.org
+ 	name = Jeff Long
+ 	email = banterability@users.noreply.github.com
