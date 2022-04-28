@@ -10,5 +10,7 @@ alias gcb="git checkout -b"
 alias gd="git diff"
 alias gs="git status"
 
+[ -r ~/.zshrc_local ] && source ~/.zshrc_local
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
