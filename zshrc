@@ -131,12 +131,6 @@ git_prompt_info() {
   print " $(git_status "$GIT_ROOT")"
 }
 
-simple_git_prompt_info() {
-  ref=$($(which git) symbolic-ref HEAD 2> /dev/null) || return
-  user=$($(which git) config user.name 2> /dev/null)
-  echo " (${user}@${ref#refs/heads/})"
-}
-
 job_info() {
   JOB_COUNT="$(jobs | wc -l | tr -d '[:blank:]')"
   if [ "$JOB_COUNT" = "0" ]
@@ -147,7 +141,7 @@ job_info() {
   fi
 }
 
-export PROMPT='%{$fg_bold[green]%}%n@%m:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(git_prompt_info) %{$reset_color%}%#%{$fg_bold[gray]%}$(job_info)%{$reset_color%} '
+export PROMPT='%{$fg_bold[green]%}%n@%m:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%} %% '
 # export PROMPT='%n@%m:%~$(git_prompt_info) %% '
 
 [ -r ~/.zshrc_local ] && source ~/.zshrc_local
