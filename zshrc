@@ -112,8 +112,17 @@ simple_git_prompt_info() {
   echo " (${user}@${ref#refs/heads/})"
 }
 
-export PROMPT='%{$fg_bold[green]%}%n@%m:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}%#%{$fg_bold[gray]%}$(job_info)%{$reset_color%} '
+job_info() {
+  JOB_COUNT="$(jobs | wc -l | tr -d '[:blank:]')"
+  if [ "$JOB_COUNT" = "0" ]
+  then
+    printf ''
+  else
+    printf ' (%s)' "$JOB_COUNT"
+  fi
+}
 
+export PROMPT="%{$fg_bold[green]%}%n@%m:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}%#%{$fg_bold[gray]%}$(job_info)%{$reset_color%} "
 
 [ -r ~/.zshrc_local ] && source ~/.zshrc_local
 
