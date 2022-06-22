@@ -1,7 +1,29 @@
 autoload -U compinit
 compinit
 
+autoload -U colors
+colors
+
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+
 setopt PROMPT_SUBST
+
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^X^e' edit-command-line
+
+# This makes Control+U delete all characters before the cursor
+bindkey '^u' backward-kill-line
+
+# This makes Control+W delete a whole word backwards, but stopping at forward slashes
+# Shamelessly stolen from: https://unix.stackexchange.com/a/250700
+my-backward-kill-word() {
+    local WORDCHARS=${WORDCHARS/\//}
+    zle backward-kill-word
+}
+zle -N my-backward-kill-word
+bindkey '^W' my-backward-kill-word
 
 alias lsd="ls -lt"
 alias pubkey="cat ~/.ssh/id_ed25519.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
