@@ -1,6 +1,8 @@
 autoload -U compinit
 compinit
 
+setopt PROMPT_SUBST
+
 alias lsd="ls -lt"
 alias pubkey="cat ~/.ssh/id_ed25519.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 alias psg="ps -ax | grep"
@@ -122,7 +124,8 @@ job_info() {
   fi
 }
 
-export PROMPT="%{$fg_bold[green]%}%n@%m:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}%#%{$fg_bold[gray]%}$(job_info)%{$reset_color%} "
+export PROMPT='%{$fg_bold[green]%}%n@%m:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(git_prompt_info) %{$reset_color%}%#%{$fg_bold[gray]%}$(job_info)%{$reset_color%} '
+# export PROMPT='%n@%m:%~$(git_prompt_info) %% '
 
 [ -r ~/.zshrc_local ] && source ~/.zshrc_local
 
