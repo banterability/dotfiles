@@ -127,7 +127,8 @@ git_prompt_info() {
   local GIT_ROOT="$(git_root)"
   [ -z "$GIT_ROOT" ] && return
 
-  print " $(git_user "$GIT_ROOT")$(git_status "$GIT_ROOT") "
+  # print " $(git_user "$GIT_ROOT")$(git_status "$GIT_ROOT")"
+  print " $(git_status "$GIT_ROOT")"
 }
 
 simple_git_prompt_info() {
