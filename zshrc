@@ -4,20 +4,24 @@ compinit
 autoload -U colors
 colors
 
+setopt PROMPT_SUBST
+
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-setopt PROMPT_SUBST
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+export LOCALE="en_US.UTF-8"
+
 
 autoload edit-command-line
 zle -N edit-command-line
 bindkey '^X^e' edit-command-line
 
-# This makes Control+U delete all characters before the cursor
+# Control+U deletes all characters before the cursor
 bindkey '^u' backward-kill-line
 
-# This makes Control+W delete a whole word backwards, but stopping at forward slashes
-# Shamelessly stolen from: https://unix.stackexchange.com/a/250700
+# Control+W deletes a whole word backwards, stopping at forward slashes (https://unix.stackexchange.com/a/250700)
 my-backward-kill-word() {
     local WORDCHARS=${WORDCHARS/\//}
     zle backward-kill-word
@@ -30,12 +34,9 @@ alias pubkey="cat ~/.ssh/id_ed25519.pub | pbcopy | echo '=> Public key copied to
 alias psg="ps -ax | grep"
 
 # Git
-
-# implemented as function to work in non-interactive contexts (e.g. `watch`)
 g () {
   git "$@"
 }
-#alias g=git
 
 alias gb="git branch"
 alias gc="git commit -v"
@@ -131,24 +132,10 @@ git_prompt_info() {
   print " $(git_status "$GIT_ROOT")"
 }
 
-job_info() {
-  JOB_COUNT="$(jobs | wc -l | tr -d '[:blank:]')"
-  if [ "$JOB_COUNT" = "0" ]
-  then
-    printf ''
-  else
-    printf ' (%s)' "$JOB_COUNT"
-  fi
-}
 
 export PROMPT='%{$fg_bold[green]%}%n@%m:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%} %% '
-# export PROMPT='%n@%m:%~$(git_prompt_info) %% '
-
-[ -r ~/.zshrc_local ] && source ~/.zshrc_local
-
-export LOCALE="en_US.UTF-8"
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[ -r ~/.zshrc_local ] && source ~/.zshrc_local
