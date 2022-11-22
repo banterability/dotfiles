@@ -30,6 +30,7 @@ zle -N my-backward-kill-word
 bindkey '^W' my-backward-kill-word
 
 alias lsd="ls -lt"
+alias npm-publish-preview="npm pack && tar -xvzf *.tgz && rm -rf package *.tgz"
 alias pubkey="cat ~/.ssh/id_ed25519.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 alias psg="ps -ax | grep"
 
