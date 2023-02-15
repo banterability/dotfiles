@@ -3,6 +3,7 @@
 	push-please = push --force-with-lease
 	co = checkout
 	cb = checkout -b
+	staged = diff --cached
 
 [color]
 	ui = true
