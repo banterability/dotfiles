@@ -136,7 +136,8 @@ git_prompt_info() {
 
 export PROMPT='%{$fg_bold[green]%}%n@%m:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%} %% '
 
+[ -r ~/.zshrc_local ] && source ~/.zshrc_local
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-[ -r ~/.zshrc_local ] && source ~/.zshrc_local
