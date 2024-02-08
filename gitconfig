@@ -33,6 +33,8 @@
 [interactive]
 	diffFilter = delta --color-only
 
+[push]
+	autoSetupRemote = true
 [user]
  	name = Jeff Long
  	email = banterability@users.noreply.github.com

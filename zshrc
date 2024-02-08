@@ -34,6 +34,9 @@ alias npm-publish-preview="npm pack && tar -xvzf *.tgz && rm -rf package *.tgz"
 alias pubkey="cat ~/.ssh/id_ed25519.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 alias psg="ps -ax | grep"
 
+# https://github.com/nvm-sh/nvm/issues/2747#issuecomment-1045703075
+alias manpath=false
+
 # Git
 g () {
   git "$@"
@@ -142,3 +145,10 @@ export PROMPT='%{$fg_bold[green]%}%n@%m:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# bun completions
+[ -s "/Users/jeff/.bun/_bun" ] && source "/Users/jeff/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
