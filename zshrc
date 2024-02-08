@@ -34,9 +34,6 @@ alias npm-publish-preview="npm pack && tar -xvzf *.tgz && rm -rf package *.tgz"
 alias pubkey="cat ~/.ssh/id_ed25519.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 alias psg="ps -ax | grep"
 
-# https://github.com/nvm-sh/nvm/issues/2747#issuecomment-1045703075
-alias manpath=false
-
 # Git
 g () {
   git "$@"
