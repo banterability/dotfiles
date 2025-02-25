@@ -8,7 +8,7 @@ ln -s ./tmux.conf ~/.tmux.conf
 ln -s ./zshrc ~/.zshrc
 ```
 
-Various bits of this config also assume [`diff-so-fancy`](https://github.com/so-fancy/diff-so-fancy) and [`nvm`](https://github.com/nvm-sh/nvm) are available on the system.
+Various bits of this config assume other tools (like [`delta`](https://github.com/dandavison/delta) and [`mise`](https://mise.jdx.dev/)) are available on the system.
 
 ## Usage
 
