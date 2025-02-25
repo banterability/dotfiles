@@ -1,40 +1,62 @@
 [alias]
-	unstage = reset HEAD
-	push-please = push --force-with-lease
-	co = checkout
-	cb = checkout -b
-	staged = diff --cached
+	cb = checkout -b        # Create and checkout a new branch
+	co = checkout           # Shorthand for checkout
+	push-please = push --force-with-lease 
+	staged = diff --cached  # Show changes staged for commit
+
+[branch]
+	sort = -committerdate   # Sort by commit date, newest first
 
 [color]
 	ui = true
 
-[color "diff"]
-	meta = 11
-	frag = magenta bold
-	func = 146 bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
-
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-
+[column]
+	ui = auto  # use columns for output when appropriate
 
 [core]
 	pager = delta
 
+[delta]
+	line-numbers = true    # Show line numbers in diffs
+	navigate = true        # Enable navigation features in the pager
+
+[diff]
+	algorithm = histogram    # Use histogram diff algorithm for more readable diffs
+	colorMoved = plain       # Color moved blocks of code differently in diffs
+	mnemonicPrefix = true    # Use mnemonic prefixes (i/w/c/o) for diff output
+	renames = true           # Detect renamed files in diffs
+
+[fetch]
+	all = true         # Fetch from all remotes
+	prune = true       # Remove remote-tracking branches that no longer exist on the remote
+	pruneTags = true   # Remove tags that no longer exist on the remote
+
 [init]
-	defaultBranch = main
+	defaultBranch = main  # Use 'main' instead of 'master'
 
 [interactive]
 	diffFilter = delta --color-only
 
+[merge]
+	conflictstyle = zdiff3   # better merge conflict resolution with more context
+
 [push]
-	autoSetupRemote = true
+	autoSetupRemote = true   # Automatically set up remote tracking branch when pushing new branch
+	default = simple         # Only push current branch to its upstream branch
+	followTags = true        # Automatically push tags that point to commits being pushed
+
+[rebase]
+	autoSquash = true    # Automatically squash commits marked with fixup! or squash!
+	autoStash = true     # Automatically stash and unstash changes when rebasing
+	updateRefs = true    # Update refs that point to commits being rebased
+
+[rerere]
+	enabled = true        # remember prior conflict resolutios
+	autoupdate = true     # Automatically add resolved files to the index
+
+[tag]
+	sort = version:refname # Sort tags by version number rather than alphabetically
+
 [user]
- 	name = Jeff Long
- 	email = banterability@users.noreply.github.com
+	email = banterability@users.noreply.github.com
+	name = Jeff Long
