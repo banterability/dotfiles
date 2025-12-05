@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-echo "Linking dotfiles…"
+echo "### dotfiles ###"
 
 # get the directory this script is in, regardless
 # of where it's being run from
