@@ -60,3 +60,6 @@
 [user]
 	email = banterability@users.noreply.github.com
 	name = Jeff Long
+	signingkey = 5ED7006CC4D80501
+[commit]
+	gpgsign = true
