@@ -15,11 +15,11 @@ done
 
 echo "Linking .config/ghostty/config..."
 mkdir -p ~/.config/ghostty
-ln -sf "$PWD/ghostty/config" ~/.config/ghostty/config
+ln -sf "$dir/ghostty/config" ~/.config/ghostty/config
 
 echo "Linking .claude..."
 mkdir -p ~/.claude
-ln -sf "$PWD/claude/CLAUDE.md" ~/.claude/CLAUDE.md
-# ln -sf "$PWD/claude/commands" ~/.claude
+ln -sf "$dir/claude/CLAUDE.md" ~/.claude/CLAUDE.md
+# ln -sf "$dir/claude/commands" ~/.claude
 
 echo "Done."
