@@ -12,4 +12,7 @@ for file in "${files[@]}"; do
   ln -sf "$dir/$file" "$HOME/.$file"
 done
 
+mkdir -p ~/.config/ghostty
+ln -sf "$PWD/ghostty/config" ~/.config/ghostty/config
+
 echo "Done."
