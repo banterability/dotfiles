@@ -9,7 +9,14 @@ dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 files=(gitconfig gitignore tmux.conf zshrc)
 for file in "${files[@]}"; do
+  echo "Linking .$file..."
   ln -sf "$dir/$file" "$HOME/.$file"
 done
+
+
+echo "Linking .claude..."
+mkdir -p ~/.claude
+ln -sf "$PWD/claude/CLAUDE.md" ~/.claude/CLAUDE.md
+# ln -sf "$PWD/claude/commands" ~/.claude
 
 echo "Done."

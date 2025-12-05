@@ -139,3 +139,6 @@ export PROMPT='%{$fg_bold[green]%}%n@%m:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(~/.local/bin/mise activate zsh)"
+
+alias claude="/Users/jeff/.claude/local/claude"
+
