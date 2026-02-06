@@ -1,5 +1,6 @@
+#font-family = Operator Mono SSm
 font-family = Berkeley Mono
-font-size = 15
+font-size = 14.5
 window-padding-x = 4
 window-padding-y = 4
 
@@ -7,9 +8,9 @@ adjust-cell-height = 2
 adjust-cursor-thickness = 1
 adjust-box-thickness = -1
 
-split-divider-color = #666
-
-unfocused-split-opacity = 0.9
+split-divider-color = #67064f
+unfocused-split-opacity = 0.6
+unfocused-split-fill = #3b2e47
 
 auto-update-channel = tip
 
