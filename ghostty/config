@@ -11,6 +11,8 @@ split-divider-color = #666
 
 unfocused-split-opacity = 0.9
 
+auto-update-channel = tip
+
 theme = Firewatch
 background = #1e2027
 foreground = #9ba2b2
