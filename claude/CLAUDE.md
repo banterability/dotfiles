@@ -33,20 +33,20 @@
 
 - I am very particular about writing. It's extremely unlikely I'll ask you to do it for me, but I may ask for suggestions to edit from.
 - Be terse, but specific. Don't pad with extra words or formality.
-- PR descriptions, commit messages, etc. should be casual and factual.
+- All writing -- PR descriptions, commit messages, comments, etc -- should be casual and factual.
 - NEVER use language like "absolutely", "comprehensive", "complete", etc. when describing the work we did. I promise we didn't write every possible test case, and suggesting we did makes us seem overconfident.
 - When writing about code, consider two different audiences:
   - An experienced engineer with vastly more familiarity with the system being modified. They may be trying to quickly suss out whether we've modelled the system correctly and our change can be trusted or needs to be more closely scrutinized.
-  - A brand new contributor, looking over the history of the project for the first time to try to understand why things are the way they are and build their own mental model.
+  - A brand new contributor, looking over the history of the project for the first time as they try to understand why things are the way they are and build their own mental model.
 
-  These may be two very different readers. When there's tension, consider how a piece of writing would be consumed by both.
+  Always consider how a piece of writing would be consumed by both. If there's tension or we appear to be biasing towards one, mention it.
 
-# Comments
+# Writing Comments
 
 - Code comments are for exceptional situations. NEVER write comments just describing what a function or line of code does, especially when the behavior is obvious to an experienced developer. Reserve comments for situations that are unintuitive (think "Chesterton's fence") or especially novel or clever.
 - When writing comments, avoid referring to temporal context about refactors or recent changes. Comments should be evergreen and describe the code as it is, not how it evolved or was recently changed.
 
-# Pull Requests
+# Writing Pull Requests
 
 - Pull request descriptions should conform to any template present in the repo. If one doesn't exist, prefer a high level structure like:
 
@@ -73,6 +73,8 @@
 - I like to handle commits. Do not create them yourself.
 - As a general rule, I prefer small commits encompassing one part of the task.
 - If you think we've completed a unit of work that warrants a commit, say something.
+- ALWAYS consider suggesting a commit if we're about to change tack or move into an unrelated area.
+- If you want bonus points, suggest a commit message and description at the same time.
 
 # Debugging
 
@@ -85,17 +87,29 @@
 
 - Tests MUST cover the functionality being implemented.
 - NEVER ignore the output of commands you run. Logs and messages often contain CRITICAL information.
-- TEST OUTPUT MUST BE PRISTINE TO PASS
-- We practice red/green TDD whenever possible. That means:
-  - Write failing tests before writing the implementation code
-  - Only write enough code to make the failing test pass
-  - Refactor code continuously while ensuring tests still pass
+- Test output must be pristine. Unrelated errors and warnings should be called out. We may opt to set them aside, but we shouldn't just ignore them because they were already there. We are always interested in spending a little time improving the commons.
+- Unless otherwise specified, we practice TDD whenever possible. That means:
+  - "Red": Write a test modeling the end state: what should be true after we implement the feature. This test should fail. If the tests passes at this stage, there's something wrong with our test.
+  - "Green": Write only enough code to make the failing test pass. This will probably not be our final implementation, but it establishes that our test is working correctly.
+  - "Refactor": Improve our implementation, ensuring the tests continue to pass. Add more tests as our understanding of the problem and its edge cases improves following the above two steps.
+
+  In cases where red/green TDD is inadvisable or not buying us much safety, please call it out and we may opt to take another approach.
+
+- Mocks are fine in most cases, but be suspicious of a test that requires mocking out a large number of methods on multiple classes. This may be a good signal that a refactor is necessary.
 
 # Dependencies
 
 - NEVER add a new dependency to a project without asking first.
+- When a new dependency is warranted, feel free to suggest a project, but we'll also do some additional research to ensure the library is the best option. Factors I'll want to consider:
+  - Is the task sufficiently trivial that we can implement it ourselves or would we truly benefit from a more mature approach?
+  - Is the project actively maintained?
+  - Licensing considerations
+  - What impact does the project have on the application's boot time / memory footprint / bundle size, etc.
 
-# Todos
+# TODOs
 
-- If we stumble across unrelated work, keep track of it. We can do this with a `TODO.md` file in the root of the project if one exists, or we can do it in memory if it's sufficiently minor.
+- If a task is sufficiently minor or related to our current workstream, we can also keep track of it in memory.
+- If we stumble across unrelated work, keep track of it. We'll often do this in a `TODO.md` file at the root of the project. Suggest creating one if one doesn't exist already.
 - Stay focused on the current task. If you feel like I'm driving you sideways, suggest that we log a TODO and return to the previous work.
+- When we complete a TODO that's tracked in a file, we can delete any remaining reference to it.
+  - DO NOT ask to update the TODO file to say that the task is done or to "cross it off". If we did it, it doesn't belong there anymore.
