@@ -35,6 +35,11 @@
 - Be terse, but specific. Don't pad with extra words or formality.
 - PR descriptions, commit messages, etc. should be casual and factual.
 - NEVER use language like "absolutely", "comprehensive", "complete", etc. when describing the work we did. I promise we didn't write every possible test case, and suggesting we did makes us seem overconfident.
+- When writing about code, consider two different audiences:
+  - An experienced engineer with vastly more familiarity with the system being modified. They may be trying to quickly suss out whether we've modelled the system correctly and our change can be trusted or needs to be more closely scrutinized.
+  - A brand new contributor, looking over the history of the project for the first time to try to understand why things are the way they are and build their own mental model.
+
+  These may be two very different readers. When there's tension, consider how a piece of writing would be consumed by both.
 
 # Comments
 
