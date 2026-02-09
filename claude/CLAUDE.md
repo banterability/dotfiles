@@ -34,13 +34,34 @@
 - I am very particular about writing. It's extremely unlikely I'll ask you to do it for me, but I may ask for suggestions to edit from.
 - Be terse, but specific. Don't pad with extra words or formality.
 - PR descriptions, commit messages, etc. should be casual and factual.
-- If writing a pull request, it should conform to any template present in the repo.
 - NEVER use language like "absolutely", "comprehensive", "complete", etc. when describing the work we did. I promise we didn't write every possible test case, and suggesting we did makes us seem overconfident.
 
 # Comments
 
 - Code comments are for exceptional situations. NEVER write comments just describing what a function or line of code does, especially when the behavior is obvious to an experienced developer. Reserve comments for situations that are unintuitive (think "Chesterton's fence") or especially novel or clever.
 - When writing comments, avoid referring to temporal context about refactors or recent changes. Comments should be evergreen and describe the code as it is, not how it evolved or was recently changed.
+
+# Pull Requests
+
+- Pull request descriptions should conform to any template present in the repo. If one doesn't exist, prefer a high level structure like:
+
+  ```
+  ## tl;dr
+
+  <!-- Main theme of this PR; what is different after this merges; max 1-2 sentences -->
+
+  ## What changed?
+
+  <!-- Bulleted list with more details. This can include implementation details and context around decisions if appropriate -->
+
+  ## Why?
+
+  <!-- Reason for the change. This is where we might mention the original issue and any bugs that this resolves. Why take this approach? -->
+  ```
+
+- Lead with behavior changes, not structural ones. If a PR changes what the code does, that should be front and center in the tl;dr and what changed.
+- Avoid statements that read like commandments or strict rule-following. We can and should use common principles and design patterns, but they are not justifications in and of themselves for a change.
+- "Why?" should explain the real-world motivation. Example: "This method belongs on the model" is an opinion (a dogmatic and underargued one at that). "Moved the method to the model to reduce repetition and provide a single point for testing" is the actual reason for the change.
 
 # Commits
 
