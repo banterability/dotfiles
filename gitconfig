@@ -31,6 +31,9 @@
 	prune = true       # Remove remote-tracking branches that no longer exist on the remote
 	pruneTags = true   # Remove tags that no longer exist on the remote
 
+[index]
+	version = 4  # Path compression for smaller, faster index
+
 [init]
 	defaultBranch = main  # Use 'main' instead of 'master'
 
@@ -51,7 +54,7 @@
 	updateRefs = true    # Update refs that point to commits being rebased
 
 [rerere]
-	enabled = true        # remember prior conflict resolutios
+	enabled = true        # remember prior conflict resolutions
 	autoupdate = true     # Automatically add resolved files to the index
 
 [tag]
