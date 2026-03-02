@@ -141,7 +141,10 @@ _prompt_precmd() {
   fi
 }
 
+_prompt_cleanup() { rm -f "$GIT_TMP" }
+
 add-zsh-hook precmd _prompt_precmd
+add-zsh-hook zshexit _prompt_cleanup
 
 PROMPT='%K{236}%F{242} ◷ %D{%-I:%M}${_ampm} %f%k ${PROMPT_PATH} ${GIT_STATUS}
 %(?.%F{green}.%F{red})>%f '
