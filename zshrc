@@ -131,6 +131,8 @@ _prompt_precmd() {
   local _hour=${(%):-%D{%H}}
   (( _hour >= 12 )) && _ampm=p || _ampm=a
 
+  PROMPT_PATH=$(prompt_path)
+
   if _in_slow_repo; then
     GIT_STATUS="⏳"
     _git_worker &!
@@ -141,7 +143,7 @@ _prompt_precmd() {
 
 add-zsh-hook precmd _prompt_precmd
 
-PROMPT='%K{236}%F{242} ◷ %D{%-I:%M}${_ampm} %f%k $(prompt_path) ${GIT_STATUS}
+PROMPT='%K{236}%F{242} ◷ %D{%-I:%M}${_ampm} %f%k ${PROMPT_PATH} ${GIT_STATUS}
 %(?.%F{green}.%F{red})>%f '
 
 [ -r ~/.zshrc_local ] && source ~/.zshrc_local
