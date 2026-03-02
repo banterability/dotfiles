@@ -45,5 +45,101 @@ alias gcb="git checkout -b"
 alias gd="git diff"
 alias gs="git status"
 
+# Prompt
+
+autoload -U add-zsh-hook
+
+prompt_path() {
+  local p="${PWD/#$HOME/~}"
+
+  if [[ "$p" == "/" ]]; then
+    echo "%F{cyan}/%f"
+    return
+  fi
+
+  if [[ "$p" == "~" ]]; then
+    echo "%F{yellow}~%f"
+    return
+  fi
+
+  local -a parts=("${(@s:/:)p}")
+  local len=${#parts}
+  local result=""
+  local start=1
+
+  if [[ "$p" == /* ]]; then
+    start=2
+    result="%F{242}/%f"
+  fi
+
+  for (( i = start; i <= len; i++ )); do
+    if (( i > start )); then
+      result+="%F{242}/%f"
+    fi
+    local seg="${parts[$i]}"
+    if [[ "$seg" == "~" ]]; then
+      result+="%F{yellow}${seg}%f"
+    elif (( i == len )); then
+      result+="%F{cyan}${seg}%f"
+    else
+      result+="%F{blue}${seg}%f"
+    fi
+  done
+
+  echo "$result"
+}
+
+git_status() {
+  local branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+  if [[ -n "$branch" ]]; then
+    if [[ -n "$(git status --porcelain 2>/dev/null)" ]]; then
+      echo "%F{yellow}($branch*)%f"
+    else
+      echo "%F{green}($branch)%f"
+    fi
+  fi
+}
+
+# paths to repos with known lousy git performance
+# makes branch + dirty status async
+VERY_LARGE_LADS=()
+
+_in_slow_repo() {
+  local prefix
+  for prefix in "${VERY_LARGE_LADS[@]}"; do
+    if [[ "$PWD" == "$prefix" || "$PWD" == "$prefix"/* ]]; then
+      return 0
+    fi
+  done
+  return 1
+}
+
+GIT_STATUS=""
+GIT_TMP="${TMPDIR:-/tmp}/zsh_git_$$"
+
+_git_worker() {
+  git_status > "$GIT_TMP"
+  kill -USR1 $$ 2>/dev/null
+}
+
+TRAPUSR1() {
+  GIT_STATUS=$(<"$GIT_TMP")
+  zle && zle reset-prompt
+}
+
+_prompt_precmd() {
+  if _in_slow_repo; then
+    GIT_STATUS="⏳"
+    _git_worker &!
+  else
+    GIT_STATUS=$(git_status)
+  fi
+}
+
+add-zsh-hook precmd _prompt_precmd
+
+PROMPT='%F{242}◷ %D{%-I:%M %p}%f $(prompt_path) ${GIT_STATUS}
+%(?.%F{green}.%F{red})>%f '
+
 [ -r ~/.zshrc_local ] && source ~/.zshrc_local
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
