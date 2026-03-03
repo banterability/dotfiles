@@ -147,7 +147,7 @@ add-zsh-hook precmd _prompt_precmd
 add-zsh-hook zshexit _prompt_cleanup
 
 PROMPT='%K{236}%F{242} ◷ %D{%-I:%M}${_ampm} %f%k ${PROMPT_PATH} ${GIT_STATUS}
-%(?.%F{green}.%F{red})>%f '
+%(?.%F{green}→.%{'$'\e[3m''%}%F{95}%? %{'$'\e[23m''%}%F{red}→)%f '
 
 [ -r ~/.zshrc_local ] && source ~/.zshrc_local
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
