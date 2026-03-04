@@ -9,7 +9,7 @@ adjust-cursor-thickness = 1
 adjust-box-thickness = -1
 
 split-divider-color = #67064f
-unfocused-split-opacity = 0.6
+unfocused-split-opacity = 0.79
 unfocused-split-fill = #3b2e47
 
 auto-update-channel = tip
