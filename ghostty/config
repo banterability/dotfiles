@@ -12,6 +12,8 @@ split-divider-color = #67064f
 unfocused-split-opacity = 0.79
 unfocused-split-fill = #3b2e47
 
+scrollback-limit = 100000000
+
 auto-update-channel = stable
 
 theme = Firewatch
