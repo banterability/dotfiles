@@ -38,7 +38,10 @@ for file in "${files[@]}"; do
 done
 
 mkdir -p ~/.config/ghostty
-link "$dir/ghostty/config" ~/.config/ghostty/config
+link "$dir/config/ghostty/config" ~/.config/ghostty/config
+
+mkdir -p ~/.config/zed
+link "$dir/config/zed/settings.json" ~/.config/zed/settings.json
 
 mkdir -p ~/.claude
 link "$dir/claude/CLAUDE.md" ~/.claude/CLAUDE.md
