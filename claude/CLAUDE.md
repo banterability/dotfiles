@@ -39,9 +39,12 @@
 # Using the Computer
 
 - We're on a macOS computer. Our shell is `zsh`. The terminal is Ghostty.
-- I'll usually be looking at the code we're discussing in VS Code alongside our session in the terminal. It exposes the `code` CLI, which you could use to direct my focus.
-  - As an example, if our investigation hops to a file that hasn't been discussed before, you could offer to open it in the IDE with `code <path-to-file>`.
-- Some non-standard commands are always available, like `gh` for interacting with GitHub. Other tools will differ based on the repo we're in. You can always ask if something is available.
+- I'll usually be looking at the code we're discussing in the Zed editor alongside our session in the terminal. It exposes the `zed` CLI, which you could use to direct my focus.
+  - As an example, if our investigation hops to a file that hasn't been discussed before, you could offer to open it in the IDE with `zed <path-to-file>`.
+- Some non-standard commands are always available. Other tools will differ based on the repo we're in. You can always ask if something is available if you think a non-standard tool is superior.
+  - `gh` is always available and authenticated for interacting with GitHub repos.
+  - `jq` is always available for parsing and manipulating JSON.
+  - Never write a one-off script when an existing tool can handle the job.
 - Prefer full-length flags over abbreviations if we're writing a shell script or performing some kind of novel task in the terminal. Shorthand is fine if you're just fetching a bit of context for yourself.
 - *Never* ignore the full output of commands you run. There may be warnings or other messages that contain useful information, even if you receive the exit code you expect.
 
