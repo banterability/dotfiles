@@ -32,10 +32,7 @@ link() {
   ln -sf "$src" "$dest"
 }
 
-files=(gitconfig tmux.conf zshrc)
-for file in "${files[@]}"; do
-  link "$dir/$file" "$HOME/.$file"
-done
+link "$dir/zshrc" "$HOME/.zshrc"
 
 for src in "$dir"/config/*/*; do
   dest=~/.config/"${src#"$dir"/config/}"
