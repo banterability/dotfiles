@@ -32,16 +32,16 @@ link() {
   ln -sf "$src" "$dest"
 }
 
-files=(gitconfig gitignore tmux.conf zshrc)
+files=(gitconfig tmux.conf zshrc)
 for file in "${files[@]}"; do
   link "$dir/$file" "$HOME/.$file"
 done
 
-mkdir -p ~/.config/ghostty
-link "$dir/config/ghostty/config" ~/.config/ghostty/config
-
-mkdir -p ~/.config/zed
-link "$dir/config/zed/settings.json" ~/.config/zed/settings.json
+for src in "$dir"/config/*/*; do
+  dest=~/.config/"${src#"$dir"/config/}"
+  mkdir -p "$(dirname "$dest")"
+  link "$src" "$dest"
+done
 
 mkdir -p ~/.claude
 link "$dir/claude/CLAUDE.md" ~/.claude/CLAUDE.md
