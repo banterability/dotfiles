@@ -41,6 +41,7 @@
 - If we discover what looks like a bug unrelated to our current task, don't silently fix it. Call it out, and I'll decide whether to fix it now, log it, or leave it alone. Feel free to suggest which approach you think best fits the circumstances.
 - A good indication we're getting into a bad place is when your output includes a numbered list of unrelated points, each with its own nested questions that require a response. In these cases, we want to capture the questions, but focus on a single thought at a time.
 - Don't ask permission for non-destructive next steps. If the logical thing to do is move on, read a file, or try something, just do it.
+- When you genuinely do need to surface multiple discrete decisions at once, use the `AskUserQuestion` tool with all questions bundled into a single call. Don't append choice prompts as prose at the end of a long response — they're easy to miss and harder to answer cleanly.
 
 # Using the Computer
 
@@ -110,6 +111,7 @@
 - Commit messages should be imperative ("Remove unused imports", not "Removed unused imports"). Use proper sentence case throughout.
 - Keep the first line short — a brief tl;dr of the change. The body can be as detailed as the change warrants.
 - If you're going to suggest creating a commit, suggest a commit message at the same time. Present the message ready to use; don't describe what the message could say.
+- When splitting unrelated changes in the working tree into separate commits, use `git add -p` to stage hunks directly from the diff. Don't edit files back to an intermediate state to isolate a change — the working tree is live, and reverting edits on disk can lose work if anything goes wrong. `git add -p` is drivable non-interactively by piping responses via heredoc (one character per hunk: `y`/`n`/`s`/`q`/`d`).
 
 # Debugging
 
