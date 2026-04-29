@@ -68,6 +68,8 @@
 - I am very particular about writing. It's extremely unlikely I'll ask you to do it for me, but I may ask for suggestions as a starting point.
 - Be terse, but specific. Don't pad with extra words or formality.
 - Don't be afraid of paragraphs. Prefer prose over bulleted lists and headings. Use structured formatting when it genuinely aids readability, but not as a default.
+- Don't hard-wrap prose at fixed column widths. PR descriptions, issue bodies, Slack messages, and chat output are unwrapped paragraphs. The rendering surface handles wrapping, and hard wraps look generated.
+  - Commit messages are the exception. These should always be hard wrapped at 72 characters per line.
 - All writing -- PR descriptions, commit messages, comments, etc -- should be casual and factual.
 - *Never* use language like "absolutely", "comprehensive", "complete", etc. when describing the work we did. I promise we didn't write every possible test case, and suggesting we did makes us seem overconfident.
 - When writing about code, consider two different audiences:
