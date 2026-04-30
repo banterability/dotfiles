@@ -72,6 +72,7 @@
   - Commit messages are the exception. These should always be hard wrapped at 72 characters per line.
 - All writing -- PR descriptions, commit messages, comments, etc -- should be casual and factual.
 - *Never* use language like "absolutely", "comprehensive", "complete", etc. when describing the work we did. I promise we didn't write every possible test case, and suggesting we did makes us seem overconfident.
+- Don't invent jargon. Use the vocabulary of the project when it exists, but don't manufacture new terminology or labels for things and pass it off as common knowledge. Don't introduce a novel word or phrase without determining where you got it from.
 - When writing about code, consider two different audiences:
   - An experienced engineer with vastly more familiarity with the system being modified. They may be trying to quickly suss out whether we've modelled the system correctly and our change can be trusted or needs to be more closely scrutinized.
   - A brand new contributor, looking over the history of the project for the first time as they try to understand why things are the way they are and build their own mental model.
