@@ -1,8 +1,6 @@
 #!/bin/bash
 set -euo pipefail
 
-echo "### dotfiles ###"
-
 # get the directory this script is in, regardless
 # of where it's being run from
 dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -12,6 +10,42 @@ green='\033[0;32m'
 yellow='\033[0;33m'
 red='\033[0;31m'
 reset='\033[0m'
+
+echo "### available on this system ###"
+
+check() {
+  local name="$1"
+  if command -v "$name" >/dev/null 2>&1; then
+    local path output version
+    path="$(command -v "$name")"
+    output="$("$name" --version 2>&1)"
+    version="${output%%$'\n'*}"
+    echo -e "  ${green}✓ ${name}${reset} ${version} ${dim}${path}${reset}"
+  else
+    echo -e "  ${red}✗ ${name}${reset}"
+  fi
+}
+
+echo "Languages:"
+check ruby
+check node
+
+echo "Tools:"
+check brew
+check delta
+check fzf
+check gh
+check git
+check jq
+check mise
+check rg
+check tree
+check wget
+check zed
+
+echo
+
+echo "### dotfiles ###"
 
 link() {
   local src="$1" dest="$2"
