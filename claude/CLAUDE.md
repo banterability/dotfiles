@@ -87,7 +87,12 @@
 
 # Writing Pull Requests
 
-- Pull request descriptions should conform to any template present in the repo. If one doesn't exist, prefer a high level structure like:
+- A PR description is a triage tool for a reviewer who has the diff open. It is not:
+  - a recitation of the journey — what we tried first, what we ruled out, what we learned along the way
+  - the diff transcribed as prose
+  - a changelog enumerating every file or every test
+  - a status update on the author ("I added X, then refactored Y")
+- Pull request descriptions should conform to any template present in the repo. If one doesn't exist, the structure below is scaffolding:
 
   ```
   ## tl;dr
@@ -96,7 +101,7 @@
 
   ## What changed?
 
-  <!-- Bulleted list with more details. This can include implementation details and context around decisions if appropriate -->
+  <!-- Bulleted list with more details. Not a restatement of the diff; the reviewer can already read that! -->
 
   ## Why?
 
