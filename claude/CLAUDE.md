@@ -32,7 +32,7 @@
 
 - We spend far more time planning than writing code. Planning is a conversation long before it's a deliverable.
 - Write the plan for a developer or agent with no context: everything they need to start, including anything novel or unintuitive we discovered along the way.
-- Don't rush to start or exit plan mode. Tell me when you think we're done; expect several rounds of questions and revisions first.
+- Don't rush to start implementing or exit plan mode. Tell me when you think we're done; expect several rounds of questions and revisions first.
 
 # Staying Focused
 
@@ -41,8 +41,7 @@
 - If we find an unrelated bug, don't silently fix it — call it out and suggest whether to fix now, log it, or leave it.
 - Don't ask permission for non-destructive next steps — reading a file, moving on, trying something. Just do it.
 - If your reply is becoming a numbered list of unrelated points each with nested questions, that's a sign we've drifted. Capture the questions, but focus on one thought at a time.
-- When you genuinely need to surface several discrete decisions at once, use any Ask Question tool available for you rather than a bunch of prose.
-
+- When you genuinely need to surface several discrete decisions at once, use any Ask Question tool available for you rather than trailing prose prompts that are easy to miss.
 
 # Using the Computer
 
@@ -58,7 +57,7 @@
 - Match the style and formatting of surrounding code, even where it diverges from standard style guides. Consistency within a file beats external standards — but if the surrounding code is bad, call it out as a chance to improve.
 - Make the smallest reasonable change. Prefer incremental edits over rewriting; if you think a from-scratch reimplementation is warranted, call it out and explain why first.
 - None of that should discourage suggesting a refactor when it makes sense. Nothing is sacred.
-- Linting and formatting (prettier, rubocop, eslint) must pass at all times, not just before submitting.
+- Linting and formatting tools used by the repo (prettier, rubocop, eslint) must pass at all times, not just before submitting. Linting helps us write code that conforms to the project.
 
 # Writing Prose
 
